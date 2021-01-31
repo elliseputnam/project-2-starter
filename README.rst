@@ -32,34 +32,30 @@ Here are the important deadlines for you to know:
 ============= ===============================
 Deliverable   Due Date
 ============= ===============================
-Deliverable 1 September 25, 2020, 11:59:59 PM
-Deliverable 2 October 5, 2020, 11:59:59 PM
+Deliverable 1 February 8, 2021, 11:59:59 PM
+Deliverable 2 February 22, 2021, 11:59:59 PM
 ============= ===============================
 
 The function of multiple deliverables is to prevent you from falling
 behind on this large project.  Please note:
 
-* This is a large project to grade with many students in the course.
-  You will not receive intermediate feedback on D1 before the D2 due
-  date.  Plan accordingly.
-
 * Solutions to D1 will not be provided after the due date.  You are
   expected to make D2 function on-top of your own work from D1.
 
 * It is recommended to finish D1 significantly before the provided due
-  date so that you can get a head-start on D2.  D2 is much more
-  difficult than D1.
+  date so that you can get a head-start on D2.  **D2 is much more
+  difficult than D1**.
 
 As outlined in the course syllabus, you may extend any of these
 deadlines using slip days.  If you spend *N* slip days on Deliverable
 1, you get an extra *N* days to turn in the final deliverable before
 slip days start counting again.
 
-For example, suppose that you turn in D1 on September 27 (2 slip
-days), and turn in D2 on October 8.  Turning in D2 will only cost you
+For example, suppose that you turn in D1 on February 10 (2 slip
+days), and turn in D2 on February 25.  Turning in D2 will only cost you
 1 slip day in this scenario.
 
-The latest day you can turn in this project is October 13, presuming
+The latest day you can turn in this project is March 2, presuming
 you spent no slip days on Project 1, and you spent all 8 slip days on
 this project.  Remember that you can spend a maximum of 5 slip days on
 a single deliverable.
