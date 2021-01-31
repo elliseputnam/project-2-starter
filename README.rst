@@ -70,14 +70,11 @@ project conforms to the requirements outlined here.
 General requirements for all deliverables:
 
 * You are free to develop your code in whichever environment you like,
-  but the code you submit code must compile and function on the
-  Isengard server.  Note: this is different from the ALAMODE machines.
-  Please see the section at the bottom of this file if you are
-  unfamiliar with access.
-
+  but the code you submit code must compile and function on Gradescope.
+  
 * Your code must be written using only the C programming language.  Do
   not extend using additional languages.  The exception is for the
-  Makefile for your project, you may write the bulid system for your
+  Makefile for your project, you may write the build system for your
   code using any available language on Isengard.
 
 * To compile your code, the grader should be able to ``cd`` into your
@@ -106,7 +103,7 @@ Project Requirements
 --------------------
 
 The specific requirements, as well as the associated deliverable, are
-outlined below.  For each requirement, it should be prefixed with [D1]
+outlined below.  Ever requirement is prefixed with [D1]
 or [D2] to indicate the corresponding deliverable it must be working
 by.
 
