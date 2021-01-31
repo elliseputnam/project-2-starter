@@ -463,10 +463,6 @@ Please see the syllabus for the full collaboration policy.
 Access to Isengard
 ------------------
 
-We have changed the standard grading environment from the ALAMODE lab
-to Isengard with this project, as the functionality of the ALAMODE
-machines has been deteriorating this semester [1]_.
-
 Remote access to Isengard is quite similar to ALAMODE, but the
 hostname is ``isengard.mines.edu``.
 
@@ -477,9 +473,4 @@ login, use this command::
 
 Note: you need to be on the campus network or VPN for this to work.
 If you are working from home, use either the VPN or hop thru
-``imagine.mines.edu`` first.
-
-.. [1] Standard editors like Emacs and Vim have stopped functioning,
-   and we've even noticed compiler issues on some machines.  We
-   presume CCIT is struggling to maintain these machines with limited
-   lab access due to COVID.
+``jumpbox.mines.edu`` first.
