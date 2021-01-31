@@ -103,7 +103,7 @@ Project Requirements
 --------------------
 
 The specific requirements, as well as the associated deliverable, are
-outlined below.  Ever requirement is prefixed with [D1]
+outlined below.  Every requirement is prefixed with [D1]
 or [D2] to indicate the corresponding deliverable it must be working
 by.
 
