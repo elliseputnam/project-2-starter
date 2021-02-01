@@ -10,6 +10,7 @@ make clean && make CC=clang >> compileErrors.txt
 if [[ $? -ne 0 ]]; then
     echo -e "${RED}Code did not compile"
     echo -e "${RED}Errors are located in compileErrors.txt"
+    echo -e "${NC}"
     exit 1
 fi
 
@@ -18,6 +19,7 @@ rm ./compileErrors.txt
 test -f "./Makefile"
 if [[ $? -ne 0 ]]; then
     echo -e "${RED}No Makefile please create a file called Makefile that compiles your code"
+    echo -e "${NC}"
     exit 1
 fi
 
@@ -26,8 +28,11 @@ then
     zip -r $User-submission ./
     echo -e "${GREEN}Zip file successfully created"
     echo -e "${GREEN}Submit $USER-submission to gradescope for the coresponding deliverable"
+    echo -e "${NC}"
     exit 0
 else
     echo -e "${RED}Please run this command on isengard to create Zip file"
+    echo -e "${NC}"
     exit 1
 fi
+
