@@ -96,7 +96,7 @@ General requirements for all deliverables:
   heap memory you allocate, writing comments where appropriate, and
   following The Linux Kernel Style Guide.
 
-* Use the ``./submit-my-work`` script to submit your work.  This
+* Use the ``./make_submission.sh`` script to submit your work.  This
   should only be run from Isengard.
 
 Project Requirements
@@ -425,7 +425,7 @@ graded on:
   - Code compiles without errors (note: you will receieve a zero on
     functionality as well if this is not true)
 
-  - Code submitted with ``./submit-my-work``
+  - Code submitted with ``./make_submission.sh``
 
 * For D2 only: no regressed features from D1.
 

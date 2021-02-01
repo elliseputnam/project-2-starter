@@ -107,7 +107,7 @@ endobj
 endobj
 15 0 obj
 <<
-/Author () /CreationDate (D:20210131123757+07'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20210131123757+07'00') /Producer (ReportLab PDF Library - www.reportlab.com) 
+/Author () /CreationDate (D:20210201101027+07'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20210201101027+07'00') /Producer (ReportLab PDF Library - www.reportlab.com) 
   /Subject (\(unspecified\)) /Title (CSCI-442 Project 2: UNIX Shell) /Trapped /False
 >>
 endobj
@@ -123,13 +123,13 @@ endobj
 endobj
 18 0 obj
 <<
-/Count 9 /Dest [ 8 0 R /XYZ 62.69291 555.0236 0 ] /First 19 0 R /Last 27 0 R /Next 28 0 R /Parent 16 0 R 
+/Count 9 /Dest [ 8 0 R /XYZ 62.69291 543.0236 0 ] /First 19 0 R /Last 27 0 R /Next 28 0 R /Parent 16 0 R 
   /Prev 17 0 R /Title (Project Requirements)
 >>
 endobj
 19 0 obj
 <<
-/Count 2 /Dest [ 8 0 R /XYZ 62.69291 252.0236 0 ] /First 20 0 R /Last 21 0 R /Next 22 0 R /Parent 18 0 R 
+/Count 2 /Dest [ 8 0 R /XYZ 62.69291 240.0236 0 ] /First 20 0 R /Last 21 0 R /Next 22 0 R /Parent 18 0 R 
   /Title (Input Loop)
 >>
 endobj
@@ -590,7 +590,7 @@ endstream
 endobj
 35 0 obj
 <<
-/Length 9508
+/Length 9537
 >>
 stream
 1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
@@ -722,12 +722,12 @@ q
 1 0 0 1 62.69291 579.0236 cm
 Q
 q
-1 0 0 1 62.69291 567.0236 cm
+1 0 0 1 62.69291 555.0236 cm
 q
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 -3 cm
+1 0 0 1 6 9 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
@@ -736,7 +736,7 @@ Q
 q
 1 0 0 1 23 -3 cm
 q
-BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Use the ) Tj /F4 10 Tf (./submit-my-work) Tj /F1 10 Tf ( script to submit your work. This should only be run from Isengard.) Tj T* ET
+BT 1 0 0 1 0 14 Tm 3.214597 Tw 12 TL /F1 10 Tf 0 0 0 rg (Use the ) Tj /F4 10 Tf (./make_submission.sh) Tj /F1 10 Tf ( script to submit your work. This should only be run from) Tj T* 0 Tw (Isengard.) Tj T* ET
 Q
 Q
 q
@@ -744,49 +744,49 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 567.0236 cm
+1 0 0 1 62.69291 555.0236 cm
 Q
 q
-1 0 0 1 62.69291 534.0236 cm
+1 0 0 1 62.69291 522.0236 cm
 q
 BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Project Requirements) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 504.0236 cm
+1 0 0 1 62.69291 492.0236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL .257126 Tw (The specific requirements, as well as the associated deliverable, are outlined below. Every requirement is) Tj T* 0 Tw (prefixed with [D1] or [D2] to indicate the corresponding deliverable it must be working by.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 462.0236 cm
+1 0 0 1 62.69291 450.0236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL .57186 Tw (All functionality due in Deliverable 1 must continue to function when you submit Deliverable 2. Points will) Tj T* 0 Tw .275318 Tw (be deducted from your Deliverable 2 grade if features have regressed that you submitted with Deliverable) Tj T* 0 Tw (1.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 420.0236 cm
+1 0 0 1 62.69291 408.0236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL .994104 Tw (Should you choose to go without starter code \(or discard portions of it\), all functionality provided by the) Tj T* 0 Tw 3.156235 Tw (starter code is due with the first deliverable, with the exception of the "history" and "help" builtin) Tj T* 0 Tw (commands, noted below.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 390.0236 cm
+1 0 0 1 62.69291 378.0236 cm
 q
 BT 1 0 0 1 0 14 Tm 1.843555 Tw 12 TL /F1 10 Tf 0 0 0 rg (Through this document, the term ) Tj /F5 10 Tf (whitespaces) Tj /F1 10 Tf ( or ) Tj /F5 10 Tf (whitespace characters) Tj /F1 10 Tf ( refers to any of the following) Tj T* 0 Tw (characters:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 384.0236 cm
-Q
-q
-1 0 0 1 62.69291 384.0236 cm
+1 0 0 1 62.69291 372.0236 cm
 Q
 q
 1 0 0 1 62.69291 372.0236 cm
+Q
+q
+1 0 0 1 62.69291 360.0236 cm
 q
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
@@ -809,10 +809,10 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 366.0236 cm
+1 0 0 1 62.69291 354.0236 cm
 Q
 q
-1 0 0 1 62.69291 354.0236 cm
+1 0 0 1 62.69291 342.0236 cm
 q
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
@@ -835,10 +835,10 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 348.0236 cm
+1 0 0 1 62.69291 336.0236 cm
 Q
 q
-1 0 0 1 62.69291 336.0236 cm
+1 0 0 1 62.69291 324.0236 cm
 q
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
@@ -861,10 +861,10 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 330.0236 cm
+1 0 0 1 62.69291 318.0236 cm
 Q
 q
-1 0 0 1 62.69291 318.0236 cm
+1 0 0 1 62.69291 306.0236 cm
 q
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
@@ -887,10 +887,10 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 312.0236 cm
+1 0 0 1 62.69291 300.0236 cm
 Q
 q
-1 0 0 1 62.69291 300.0236 cm
+1 0 0 1 62.69291 288.0236 cm
 q
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
@@ -913,10 +913,10 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 294.0236 cm
+1 0 0 1 62.69291 282.0236 cm
 Q
 q
-1 0 0 1 62.69291 282.0236 cm
+1 0 0 1 62.69291 270.0236 cm
 q
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
@@ -939,35 +939,35 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 282.0236 cm
+1 0 0 1 62.69291 270.0236 cm
 Q
 q
-1 0 0 1 62.69291 264.0236 cm
+1 0 0 1 62.69291 252.0236 cm
 q
 BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (The term ) Tj /F5 10 Tf (word characters) Tj /F1 10 Tf ( refers to any characters which are not whitespace characters, nor ) Tj /F4 10 Tf (>) Tj /F1 10 Tf (, ) Tj /F4 10 Tf (<) Tj /F1 10 Tf (, or ) Tj /F4 10 Tf (|) Tj /F1 10 Tf (.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 234.0236 cm
+1 0 0 1 62.69291 222.0236 cm
 q
 BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Input Loop) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 216.0236 cm
+1 0 0 1 62.69291 204.0236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The general operation of your shell should consist of the following:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 210.0236 cm
-Q
-q
-1 0 0 1 62.69291 210.0236 cm
+1 0 0 1 62.69291 198.0236 cm
 Q
 q
 1 0 0 1 62.69291 198.0236 cm
+Q
+q
+1 0 0 1 62.69291 186.0236 cm
 q
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
@@ -989,10 +989,10 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 192.0236 cm
+1 0 0 1 62.69291 180.0236 cm
 Q
 q
-1 0 0 1 62.69291 156.0236 cm
+1 0 0 1 62.69291 144.0236 cm
 q
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
@@ -1014,10 +1014,10 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 150.0236 cm
+1 0 0 1 62.69291 138.0236 cm
 Q
 q
-1 0 0 1 62.69291 138.0236 cm
+1 0 0 1 62.69291 126.0236 cm
 q
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
@@ -1040,10 +1040,10 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 132.0236 cm
+1 0 0 1 62.69291 120.0236 cm
 Q
 q
-1 0 0 1 62.69291 120.0236 cm
+1 0 0 1 62.69291 108.0236 cm
 q
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
@@ -1066,10 +1066,10 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 114.0236 cm
+1 0 0 1 62.69291 102.0236 cm
 Q
 q
-1 0 0 1 62.69291 102.0236 cm
+1 0 0 1 62.69291 90.02362 cm
 q
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
@@ -1092,7 +1092,7 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 96.02362 cm
+1 0 0 1 62.69291 84.02362 cm
 Q
  
 endstream
@@ -2676,7 +2676,7 @@ endstream
 endobj
 40 0 obj
 <<
-/Length 7106
+/Length 7110
 >>
 stream
 1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
@@ -2850,7 +2850,7 @@ Q
 q
 1 0 0 1 23 -3 cm
 q
-BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Code submitted with ) Tj /F4 10 Tf (./submit-my-work) Tj T* ET
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Code submitted with ) Tj /F4 10 Tf (./make_submission.sh) Tj T* ET
 Q
 Q
 q
@@ -3207,23 +3207,23 @@ xref
 0000004745 00000 n 
 0000004845 00000 n 
 0000012905 00000 n 
-0000022465 00000 n 
-0000030298 00000 n 
-0000038165 00000 n 
-0000043917 00000 n 
-0000052858 00000 n 
-0000060016 00000 n 
-0000060114 00000 n 
-0000060148 00000 n 
-0000060182 00000 n 
-0000060216 00000 n 
-0000060250 00000 n 
-0000060284 00000 n 
-0000060318 00000 n 
+0000022494 00000 n 
+0000030327 00000 n 
+0000038194 00000 n 
+0000043946 00000 n 
+0000052887 00000 n 
+0000060049 00000 n 
+0000060147 00000 n 
+0000060181 00000 n 
+0000060215 00000 n 
+0000060249 00000 n 
+0000060283 00000 n 
+0000060317 00000 n 
+0000060351 00000 n 
 trailer
 <<
 /ID 
-[<4bcb7025b98bdcffc7beac3e196495b8><4bcb7025b98bdcffc7beac3e196495b8>]
+[<aa15be30985f3566d3da1d477d6e3408><aa15be30985f3566d3da1d477d6e3408>]
 % ReportLab generated PDF document -- digest (http://www.reportlab.com)
 
 /Info 15 0 R
@@ -3231,5 +3231,5 @@ trailer
 /Size 49
 >>
 startxref
-60352
+60385
 %%EOF
