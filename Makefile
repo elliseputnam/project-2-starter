@@ -1,5 +1,5 @@
 SHELL:=/bin/bash
-CC:=clang
+CC=clang
 LIBS:=-lreadline -lhistory
 FLAGS_release:=-O2 -flto
 FLAGS_debug:=-O0 -ggdb3 -DTEST_BUILD -fsanitize=address
