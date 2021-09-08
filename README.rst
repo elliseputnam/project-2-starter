@@ -83,9 +83,6 @@ General requirements for all deliverables:
   heap memory you allocate, writing comments where appropriate, and
   following The Linux Kernel Style Guide.
 
-* Use the ``./make_submission.sh`` script to submit your work.  This
-  should only be run from Isengard.
-
 Project Requirements
 --------------------
 
@@ -412,7 +409,7 @@ graded on:
   - Code compiles without errors (note: you will receieve a zero on
     functionality as well if this is not true)
 
-  - Code submitted with ``./make_submission.sh``
+  - Code submitted with ``make-submission``
 
 * For D2 only: no regressed features from D1.
 
@@ -461,3 +458,25 @@ login, use this command::
 Note: you need to be on the campus network or VPN for this to work.
 If you are working from home, use either the VPN or hop thru
 ``jumpbox.mines.edu`` first.
+
+
+Submitting Your Project
+=======================
+
+Submission of your project will be handled via **Gradescope**.
+
+1. Create the submission file using the provided ``make-submission`` script::
+
+        prompt> ./make-submission
+
+2. This will create a ``.zip`` file named ``$USER-submission`` (e.g., for me, this would be named ``lhenke-submission.zip``).
+
+3. Submit this ``.zip`` file to Gradescope. You will get a confirmation email if you did this correctly.
+
+You can re-submit as many times as you want before the due date, but note the project will not be graded until
+a few days after the due date, **NOT** on-submission (similar to Canvas).
+
+.. warning::
+        You are **REQUIRED** to use ``make-submission`` to form the ``.zip`` file. Failure to do so
+        may cause your program to not compile on Gradescope. A penalty to your grade will be applied
+        if you need to resubmit due to compilation issues stemming from not using this script.

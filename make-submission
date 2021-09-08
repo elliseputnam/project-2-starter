@@ -23,16 +23,9 @@ if [[ $? -ne 0 ]]; then
     exit 1
 fi
 
-if [ $(hostname) = 'isengard.mines.edu' ]
-then
-    zip -r $User-submission ./
-    echo -e "${GREEN}Zip file successfully created"
-    echo -e "${GREEN}Submit $USER-submission to gradescope for the coresponding deliverable"
-    echo -e "${NC}"
-    exit 0
-else
-    echo -e "${RED}This script can only be ran on Isengard."
-    echo -e "${NC}"
-    exit 1
-fi
+zip -r $USER-submission -r Makefile include/ mains/ src/
+echo -e "${GREEN}Zip file successfully created"
+echo -e "${GREEN}Submit $USER-submission to gradescope for the coresponding deliverable"
+echo -e "${NC}"
+exit 0
 
