@@ -32,8 +32,8 @@ Here are the important deadlines for you to know:
 ============= ===============================
 Deliverable   Due Date
 ============= ===============================
-Deliverable 1 February 8, 2021, 11:59:59 PM
-Deliverable 2 February 22, 2021, 11:59:59 PM
+Deliverable 1 September 17, 2021, 11:59:59 PM
+Deliverable 2 September 27, 2021, 11:59:59 PM
 ============= ===============================
 
 The function of multiple deliverables is to prevent you from falling
@@ -46,19 +46,6 @@ behind on this large project.  Please note:
   date so that you can get a head-start on D2.  **D2 is much more
   difficult than D1**.
 
-As outlined in the course syllabus, you may extend any of these
-deadlines using slip days.  If you spend *N* slip days on Deliverable
-1, you get an extra *N* days to turn in the final deliverable before
-slip days start counting again.
-
-For example, suppose that you turn in D1 on February 10 (2 slip
-days), and turn in D2 on February 25.  Turning in D2 will only cost you
-1 slip day in this scenario.
-
-The latest day you can turn in this project is March 2, presuming
-you spent no slip days on Project 1, and you spent all 8 slip days on
-this project.  Remember that you can spend a maximum of 5 slip days on
-a single deliverable.
 
 General Requirements
 --------------------
@@ -129,6 +116,81 @@ refers to any of the following characters:
 
 The term *word characters* refers to any characters which are not
 whitespace characters, nor ``>``, ``<``, or ``|``.
+
+External Commands (Deliverable 1)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**If you are using all of the starter code, this is likely to be the
+first thing you implement.**
+
+[D1] When the user types a command which is not known as a builtin to
+the shell, the shell should find the command in the ``PATH`` and
+execute the command using ``fork(2)`` and ``execve(2)``. You may use
+any of the ``exec*`` family of library functions (such as
+``execvp(3)``) to help you find the command in the ``PATH`` before
+executing it, if you wish.
+
+[D1] The shell should wait on the external command finishing before
+returning to the prompt.  As an example, you should be able to type
+``gedit``, the editor will open, and you won't get your shell prompt
+again until the editor is closed. See ``man 2 wait`` for info on how
+to do this.
+
+Pipes (Deliverable 2)
+~~~~~~~~~~~~~~~~~~~~~
+
+[D2] Your shell should be able to handle an arbitrary number of
+commands piped together. For example::
+
+  command1 | command2
+  command1 arg1 arg2 | command2
+  command1 < inputfile | command2 > outputfile
+
+For an example of a real piped command, try this (which gives the
+number of lines in ``mains/parseview.c`` which contain the word
+``int``)::
+
+  cat mains/parseview.c | grep int
+
+Or maybe use ``cat`` on a previous command::
+
+  date | cat 
+
+For this command, you should get the current date (assuming your shell
+handles pipes properly).
+
+.. note::
+
+   You may not make use of temporary files in your implementation of
+   pipes.  This means you are going to have to use the ``pipe(2)``
+   system call.
+
+   Additionally, you are not expected to support more than
+   ``PIPE_BUF`` bytes sent between two processes.  On Isengard, this
+   value is 64 kilobytes.
+
+File Redirection (Deliverable 2)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+[D2] Your code must handle file redirection using ``>`` (overwrite to
+a file), ``>>`` (append to a file), or ``<`` (input from a file).
+
+For example::
+
+  command > file-to-write-or-overwrite.txt
+  command >> file-to-append-to.txt
+  command < file-to-get-input-from-as-stdin.txt
+
+[D2] For ``>`` and ``>>``, you should create the file if it does not
+exist.
+
+[D2] You should support ``<`` at the beginning of a pipeline, and
+``>>`` or ``>`` at the end of a pipeline.
+
+[D2] Think carefully about the permissions you create files with. With
+``open(2)``, you provide the value which gets paired with
+``umask``.  What number should you use for files then?  (Hint: files
+should not have the executable bit set)
 
 Input Loop
 ~~~~~~~~~~
@@ -222,7 +284,6 @@ The following are valid example commands:
 * ``arg1 arg2 >outfile <infile``
 * ``<  infile arg1 >outfile arg2``
 * ``arg1 arg2   arg3  <  input_file arg4 | cmd2_arg1 >> append_file``
-* ``a|b|c|d|e|f|g|h``
 
 .. admonition:: For Deliverable 1 only...
 
@@ -282,80 +343,6 @@ to, which can be a relative or absolute path.
 If ``cd`` is called with no arguments, it should change to your home
 directory (as specified by the ``HOME`` environment variable).
 
-External Commands (Deliverable 1)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-**If you are using all of the starter code, this is likely to be the
-first thing you implement.**
-
-[D1] When the user types a command which is not known as a builtin to
-the shell, the shell should find the command in the ``PATH`` and
-execute the command using ``fork(2)`` and ``execve(2)``. You may use
-any of the ``exec*`` family of library functions (such as
-``execvp(3)``) to help you find the command in the ``PATH`` before
-executing it, if you wish.
-
-[D1] The shell should wait on the external command finishing before
-returning to the prompt.  As an example, you should be able to type
-``gedit``, the editor will open, and you won't get your shell prompt
-again until the editor is closed. See ``man 2 wait`` for info on how
-to do this.
-
-Pipes (Deliverable 2)
-~~~~~~~~~~~~~~~~~~~~~
-
-[D2] Your shell should be able to handle an arbitrary number of
-commands piped together. For example::
-
-  command1 | command2
-  command1 arg1 arg2 | command2
-  command1 | command2 | command3 | command4
-
-For an example of a real piped command, try this (which gives the
-number of lines in ``mains/parseview.c`` which contain the word
-``int``)::
-
-  cat mains/parseview.c | grep int | wc -l
-
-Maybe try putting a long chain of cats together::
-
-  date | cat | cat | cat | cat | cat | cat | cat
-
-For this command, you should get the current date (assuming your shell
-handles pipes properly).
-
-.. note::
-
-   You may not make use of temporary files in your implementation of
-   pipes.  This means you are going to have to use the ``pipe(2)``
-   system call.
-
-   Additionally, you are not expected to support more than
-   ``PIPE_BUF`` bytes sent between two processes.  On Isengard, this
-   value is 64 kilobytes.
-
-File Redirection (Deliverable 2)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-[D2] Your code must handle file redirection using ``>`` (overwrite to
-a file), ``>>`` (append to a file), or ``<`` (input from a file).
-
-For example::
-
-  command > file-to-write-or-overwrite.txt
-  command >> file-to-append-to.txt
-  command < file-to-get-input-from-as-stdin.txt
-
-[D2] For ``>`` and ``>>``, you should create the file if it does not
-exist.
-
-[D2] You should support ``<`` at the beginning of a pipeline, and
-``>>`` or ``>`` at the end of a pipeline.
-
-[D2] Think carefully about the permissions you create files with. With
-``open(2)``, you provide the value which gets paired with
-``umask``.  What number should you use for files then?  (Hint: files
-should not have the executable bit set)
 
 An Introduction to the Starter Code
 -----------------------------------
