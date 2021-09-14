@@ -117,7 +117,7 @@ endobj
 endobj
 16 0 obj
 <<
-/Author () /CreationDate (D:20210908111421+07'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20210908111421+07'00') /Producer (ReportLab PDF Library - www.reportlab.com) 
+/Author () /CreationDate (D:20210914105634+07'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20210914105634+07'00') /Producer (ReportLab PDF Library - www.reportlab.com) 
   /Subject (\(unspecified\)) /Title () /Trapped /False
 >>
 endobj
@@ -666,7 +666,7 @@ endstream
 endobj
 38 0 obj
 <<
-/Length 7509
+/Length 7490
 >>
 stream
 1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
@@ -957,7 +957,7 @@ q
 1 0 0 1 62.69291 213.0236 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL ([D2] Your shell should be able to handle an arbitrary number of commands piped together. For example:) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL ([D2] Your shell should be able to handle two commands piped together. For example:) Tj T* ET
 Q
 Q
 q
@@ -3309,25 +3309,25 @@ xref
 0000005216 00000 n 
 0000005323 00000 n 
 0000014180 00000 n 
-0000021741 00000 n 
-0000028666 00000 n 
-0000036558 00000 n 
-0000043432 00000 n 
-0000053062 00000 n 
-0000060016 00000 n 
-0000061785 00000 n 
-0000061892 00000 n 
-0000061926 00000 n 
-0000061960 00000 n 
-0000061994 00000 n 
-0000062028 00000 n 
-0000062062 00000 n 
-0000062096 00000 n 
-0000062130 00000 n 
+0000021722 00000 n 
+0000028647 00000 n 
+0000036539 00000 n 
+0000043413 00000 n 
+0000053043 00000 n 
+0000059997 00000 n 
+0000061766 00000 n 
+0000061873 00000 n 
+0000061907 00000 n 
+0000061941 00000 n 
+0000061975 00000 n 
+0000062009 00000 n 
+0000062043 00000 n 
+0000062077 00000 n 
+0000062111 00000 n 
 trailer
 <<
 /ID 
-[<e73baf58f59be089e5d0c3fa20805752><e73baf58f59be089e5d0c3fa20805752>]
+[<bf4ee6e3cfd0c121b5fe4ee73754bbd3><bf4ee6e3cfd0c121b5fe4ee73754bbd3>]
 % ReportLab generated PDF document -- digest (http://www.reportlab.com)
 
 /Info 16 0 R
@@ -3335,5 +3335,5 @@ trailer
 /Size 54
 >>
 startxref
-62164
+62145
 %%EOF

@@ -136,8 +136,8 @@ to do this.
 Pipes (Deliverable 2)
 ~~~~~~~~~~~~~~~~~~~~~
 
-[D2] Your shell should be able to handle an arbitrary number of
-commands piped together. For example::
+[D2] Your shell should be able to handle two commands piped together.
+For example::
 
   command1 | command2
   command1 arg1 arg2 | command2
