@@ -32,8 +32,8 @@ Here are the important deadlines for you to know:
 ============= ===============================
 Deliverable   Due Date
 ============= ===============================
-Deliverable 1 September 17, 2021, 11:59:59 PM
-Deliverable 2 September 27, 2021, 11:59:59 PM
+Deliverable 1 Febuary 7 2022, 11:59:59 PM
+Deliverable 2 Febuary 21, 2022, 11:59:59 PM
 ============= ===============================
 
 The function of multiple deliverables is to prevent you from falling
@@ -136,22 +136,22 @@ to do this.
 Pipes (Deliverable 2)
 ~~~~~~~~~~~~~~~~~~~~~
 
-[D2] Your shell should be able to handle two commands piped together.
+[D2] Your shell should be able to handle an arbitrary number of commands piped together.
 For example::
 
-  command1 | command2
-  command1 arg1 arg2 | command2
-  command1 < inputfile | command2 > outputfile
+  command1 | command2 | command3 | command4
+  command1 arg1 arg2 | command2 | command3 arg1 arg2
+  command1 < inputfile | command2 | command3 > outputfile
 
 For an example of a real piped command, try this (which gives the
 number of lines in ``mains/parseview.c`` which contain the word
 ``int``)::
 
-  cat mains/parseview.c | grep int
+  cat mains/parseview.c | grep int | cat 
 
 Or maybe use ``cat`` on a previous command::
 
-  date | cat 
+  date | cat | cat | cat 
 
 For this command, you should get the current date (assuming your shell
 handles pipes properly).
