@@ -32,8 +32,8 @@ Here are the important deadlines for you to know:
 ============= ===============================
 Deliverable   Due Date
 ============= ===============================
-Deliverable 1 Febuary 7 2022, 11:59:59 PM
-Deliverable 2 Febuary 21, 2022, 11:59:59 PM
+Deliverable 1 Check Canvas Assignment
+Deliverable 2 Check Canvas Assignment
 ============= ===============================
 
 The function of multiple deliverables is to prevent you from falling
