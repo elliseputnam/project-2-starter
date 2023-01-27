@@ -1,10 +1,8 @@
 CSCI-442 Project 2: UNIX Shell
 ==============================
 
-.. important::
-
    You'll want to read this **entire document** before beginning the
-   project.  Please ask any questions you have on Piazza, but only if
+   project.  Please ask any questions you have on the discussion board, but only if
    this README does not answer your question.
 
    Finally, this is a **large project**.  Be sure to start early.  If
@@ -16,10 +14,11 @@ Like ``bash``), using the C programming language.  The shell serves as
 the user interface of an operating system, and some shells provide
 additonal functionality, such as scripting.
 
-Learning Objectives:
+1) Learning Objectives:
+--------------------
 
 * Understand the system call ABI to UNIX systems by writing a program
-  which uses system calls such as ``fork``, ``execve``, and more.
+  which uses system calls such as ``fork``, ``execvp``, and more.
 
 * Become familiar with UNIX file descriptors, both associated to files
   on the filesystem and to pipes, by implementing a shell which
@@ -47,7 +46,7 @@ behind on this large project.  Please note:
   difficult than D1**.
 
 
-General Requirements
+2) General Requirements
 --------------------
 
 Using the starter code *is not a requirement of this project*. You are
@@ -57,7 +56,8 @@ project conforms to the requirements outlined here.
 General requirements for all deliverables:
 
 * You are free to develop your code in whichever environment you like,
-  but the code you submit code must compile and function on Gradescope.
+  but the code you submit code must compile and function on Gradescope. 
+  The Gradescope enviroment is the same as Isengard (Ubuntu 20.04).
   
 * Your code must be written using only the C programming language.  Do
   not extend using additional languages.  The exception is for the
@@ -83,7 +83,7 @@ General requirements for all deliverables:
   heap memory you allocate, writing comments where appropriate, and
   following The Linux Kernel Style Guide.
 
-Project Requirements
+3) Project Requirements
 --------------------
 
 The specific requirements, as well as the associated deliverable, are
@@ -92,9 +92,7 @@ or [D2] to indicate the corresponding deliverable it must be working
 by.
 
 All functionality due in Deliverable 1 must continue to function when
-you submit Deliverable 2.  Points will be deducted from your
-Deliverable 2 grade if features have regressed that you submitted with
-Deliverable 1.
+you submit Deliverable 2.
 
 Should you choose to go without starter code (or discard portions of
 it), all functionality provided by the starter code is due with the
@@ -114,7 +112,7 @@ refers to any of the following characters:
 The term *word characters* refers to any characters which are not
 whitespace characters, nor ``>``, ``<``, or ``|``.
 
-External Commands (Deliverable 1)
+3.1) External Commands (Deliverable 1)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **If you are using all of the starter code, this is likely to be the
@@ -133,7 +131,7 @@ returning to the prompt.  As an example, you should be able to type
 again until the editor is closed. See ``man 2 wait`` for info on how
 to do this.
 
-Pipes (Deliverable 2)
+3.2) Pipes (Deliverable 2)
 ~~~~~~~~~~~~~~~~~~~~~
 
 [D2] Your shell should be able to handle an arbitrary number of commands piped together.
@@ -156,9 +154,7 @@ Or maybe use ``cat`` on a previous command::
 For this command, you should get the current date (assuming your shell
 handles pipes properly).
 
-.. note::
-
-   You may not make use of temporary files in your implementation of
+   Note: You may not make use of temporary files in your implementation of
    pipes.  This means you are going to have to use the ``pipe(2)``
    system call.
 
@@ -166,7 +162,7 @@ handles pipes properly).
    ``PIPE_BUF`` bytes sent between two processes.  On Isengard, this
    value is 64 kilobytes.
 
-File Redirection (Deliverable 2)
+3.3) File Redirection (Deliverable 2)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 [D2] Your code must handle file redirection using ``>`` (overwrite to
@@ -189,8 +185,19 @@ exist.
 ``umask``.  What number should you use for files then?  (Hint: files
 should not have the executable bit set)
 
-Input Loop
+3.4) Terminal Interaction
 ~~~~~~~~~~
+
+The following information has already been implemented in the starter code.
+If you want to use all the starter code, then you can skip ahead to Section 4
+and then begin working on handling an external command.
+
+If you do not wish to use the starter code, you must read sections 3.4 - 3.4.4
+to have the proper formatting that the grader will expect when running your code.
+
+
+3.4.1) Input Logic
+^^^^^^^^^^
 
 The general operation of your shell should consist of the following:
 
@@ -207,17 +214,7 @@ The general operation of your shell should consist of the following:
    your process, or the last exit status if none was provided.
 7. Goto step 2.
 
-.. note::
-
-   The starter code in this project implements the loop above for you
-   in ``src/interact.c``.  This specification would be necessary if
-   you chose to discard any portion of the provided starter code.
-
-   If you plan on using all of the starter code, it is highly
-   recommended you read through the following sections, but things
-   won't be very interesting until the "External Commands" section.
-
-The Prompt
+3.4.2) The Prompt
 ^^^^^^^^^^
 
 The prompt should be entirely on one line (no newline characters), and
@@ -229,9 +226,7 @@ The prompt must end with ``$``, followed by a single space.
 You can include any additional text in the prompt as you wish, so as
 long as the above requirements are held true.
 
-.. note::
-
-   The starter code implements the prompt functionality in
+   Note: The starter code implements the prompt functionality in
    ``src/interact.c``, and provides the following pre-implemented
    prompt line, which meets the above requirements:
 
@@ -246,7 +241,7 @@ long as the above requirements are held true.
    * ``$`` symbol
    * Space
 
-Input Parsing
+3.4.3) Input Parsing
 ^^^^^^^^^^^^^
 
 The input consists of a *pipeline*.  A *pipeline* is one or more
@@ -287,9 +282,7 @@ The following are valid example commands:
    You may assume the characters ``|``, ``<``, and ``>`` do not appear
    in the input.
 
-.. note::
-
-   The starter code already implements (and uses) an input parser for
+   Note: The starter code already implements (and uses) an input parser for
    you.  The documentation for this parser can be found in
    ``include/parser.h``.
 
@@ -298,7 +291,7 @@ The following are valid example commands:
    interpretation of the above examples and more using the provided
    ``parseview`` program in the starter code.
 
-Builtin Commands
+3.4.4) Builtin Commands
 ~~~~~~~~~~~~~~~~
 
 *Builtin commands* are commands supported by the shell which do not
@@ -310,9 +303,7 @@ or directory, etc.), your shell should print an approprite error
 message on ``stderr`` and indicate the command failure status in the
 prompt.
 
-.. note::
-
-   All required builtin commands are implemented in the starter code
+   Note: All required builtin commands are implemented in the starter code
    (in ``src/shell_builtins.c``) for you already.  This is provided
    for reference if you decide to not use that portion of the starter
    code.
@@ -321,18 +312,12 @@ prompt.
    builtin commands.  It is not required that you implement these.  You
    are free to discard these commands if you don't want them.
 
-Finally, builtin commands do not need to work with pipelines of more
+Finally, builtin commands (``cd`` and ``exit``) do not need to work with pipelines of more
 than a single command, nor input or output files.
-
-exit
-^^^^
 
 The ``exit`` command takes zero or one arguments. If zero, the shell
 should exit with the last return code. If one argument is passed, it
 should be a number indicating the exit code to exit with.
-
-cd
-^^
 
 The ``cd`` command takes one argument, the directory to change
 to, which can be a relative or absolute path.
@@ -341,11 +326,11 @@ If ``cd`` is called with no arguments, it should change to your home
 directory (as specified by the ``HOME`` environment variable).
 
 
-An Introduction to the Starter Code
+4) An Introduction to the Starter Code
 -----------------------------------
 
 The starter code provides an input loop, input parser, and builtin
-commands, well as a Makefile, but does not dictate how you should
+commands, as well as a Makefile, but does not dictate how you should
 structure the code for external commands, pipelines, or redirection.
 
 It's **up to you** to break your code into useful helper functions, or
@@ -376,7 +361,7 @@ somewhere to start, try this:
 
 5.  Start hacking away at ``dispatch_external_command``!
 
-Grading
+5) Grading
 -------
 
 Each deliverable is 50% of the grade.  For each deliverable, you'll be
@@ -401,6 +386,7 @@ graded on:
     - ``strcat``, ``sprintf``, and ``strcpy`` are not used.
     - Corruption impossible.
     - No segmentation faults.
+    - Use ``./shell.debug`` for additional memory safety testing.
 
   - Avoids monolithic functions.  Makes good use of helper functions.
 
@@ -419,48 +405,47 @@ graded on:
     on one of the system shells.  Do not use ``system()`` or
     ``popen()``: these depend on the system shells.
 
-Additional Resources
+6) Additional Resources
 --------------------
 
 * Don't forget the man pages! System functions are under ``man 2``,
   and library functions under ``man 3``.
-
-* The book from the reading (Advanced Programming in the UNIX
-  Environment) is available in the ALAMODE Lab.  It is an excellent
-  resource for this project.
+  
+* Ask questions in the online discussion board. If you are going to post code,
+  please keep the post private as to comply with the collaboration policy.
 
 * Please attend office hours if you find yourself falling
   behind.  Don't wait until the last week to seek help.
 
-Collaboration Policy
+7) Collaboration Policy
 --------------------
 
-This is an **team project**.  All code you submit should be
-written by yourself and/or your teammate.  You should not share your code with others.
+This is an **individual project**.  All code you submit should be
+written by yourself.  You should not share your code with others.
 
 Please see the syllabus for the full collaboration policy.
 
-.. warning::
+   **WARNING: Plagarism will be punished harshly!**
 
-   **Plagarism will be punished harshly!**
-
-Access to Isengard
+8) Access to Isengard
 ------------------
 
 Remote access to Isengard is quite similar to ALAMODE, but the
-hostname is ``isengard.mines.edu``.
+hostname is ``isengard.mines.edu``. 
 
 For example, to ``ssh`` into the machine with your campus MultiPass
 login, use this command::
 
   $ ssh username@isengard.mines.edu
+  
+A tutorial has been linked in the discussion board to ``ssh`` via Visual Studio Code.
 
 Note: you need to be on the campus network or VPN for this to work.
 If you are working from home, use either the VPN or hop thru
 ``jumpbox.mines.edu`` first.
 
 
-Submitting Your Project
+9) Submitting Your Project
 =======================
 
 Submission of your project will be handled via **Gradescope**.
@@ -473,10 +458,5 @@ Submission of your project will be handled via **Gradescope**.
 
 3. Submit this ``.zip`` file to Gradescope. You will get a confirmation email if you did this correctly.
 
-You can re-submit as many times as you want before the due date, but note the project will not be graded until
-a few days after the due date, **NOT** on-submission (similar to Canvas).
-
-.. warning::
-        You are **REQUIRED** to use ``make-submission`` to form the ``.zip`` file. Failure to do so
-        may cause your program to not compile on Gradescope. A penalty to your grade will be applied
-        if you need to resubmit due to compilation issues stemming from not using this script.
+        WARNING: You are **REQUIRED** to use ``make-submission`` to form the ``.zip`` file. Failure to do so
+        may cause your program to not compile on Gradescope. 
