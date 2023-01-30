@@ -361,7 +361,19 @@ somewhere to start, try this:
 
 5.  Start hacking away at ``dispatch_external_command``!
 
-5) Grading
+5) Reference Executables
+-----------------------------------
+
+Provided for you are two reference executable files called ``shell_d1`` and ``shell_d2``.
+They are working versions of D1 and D2 that score 100% in the autograder.
+You may use them to help understand the behavior of a working project.
+They are included in this template repository and can be run with ``./shell_d1`` or ``./shell_d2``.
+Things to keep in mind about the reference executables:
+
+* They were developed on isengard and are only guaranteed to work on isengard. See the video on Ed for information about setting up isengard with vscode.
+* They are instructor versions and you may not execute them from within your own code. The autograder checks for this and you will get a zero.
+
+6) Grading
 -------
 
 Each deliverable is 50% of the grade.  For each deliverable, you'll be
@@ -405,7 +417,7 @@ graded on:
     on one of the system shells.  Do not use ``system()`` or
     ``popen()``: these depend on the system shells.
 
-6) Additional Resources
+7) Additional Resources
 --------------------
 
 * Don't forget the man pages! System functions are under ``man 2``,
@@ -417,7 +429,7 @@ graded on:
 * Please attend office hours if you find yourself falling
   behind.  Don't wait until the last week to seek help.
 
-7) Collaboration Policy
+8) Collaboration Policy
 --------------------
 
 This is an **individual project**.  All code you submit should be
@@ -427,7 +439,7 @@ Please see the syllabus for the full collaboration policy.
 
    **WARNING: Plagarism will be punished harshly!**
 
-8) Access to Isengard
+9) Access to Isengard
 ------------------
 
 Remote access to Isengard is quite similar to ALAMODE, but the
@@ -445,7 +457,7 @@ If you are working from home, use either the VPN or hop thru
 ``jumpbox.mines.edu`` first.
 
 
-9) Submitting Your Project
+10) Submitting Your Project
 =======================
 
 Submission of your project will be handled via **Gradescope**.
