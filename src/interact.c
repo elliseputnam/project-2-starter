@@ -7,6 +7,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <sys/types.h>
+#include <pwd.h>
 
 #include <readline/readline.h>
 #include <readline/history.h>
@@ -37,11 +39,14 @@ char *default_prompt_generator(int last_return_code)
 	const char *cwd = cwd_buf;
 	char *prompt;
 	size_t prompt_sz;
+	struct passwd *pw;
 
-	if (getlogin_r(user_buf, sizeof(user_buf)) < 0) {
+	if ((pw = getpwuid(getuid())) == NULL) {
 		fprintf(stderr, "Unable to get current username: %s\n",
 			strerror(errno));
 		user = "???";
+	} else {
+		user = pw->pw_name;
 	}
 
 	if (gethostname(hostname_buf, sizeof(hostname_buf) - 1) < 0) {
