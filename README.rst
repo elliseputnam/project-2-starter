@@ -55,14 +55,13 @@ project conforms to the requirements outlined here.
 
 General requirements for all deliverables:
 
-* You are free to develop your code in whichever environment you like,
-  but the code you submit code must compile and function on Gradescope. 
-  The Gradescope enviroment is the same as Isengard (Ubuntu 20.04).
+* You are required to use the Docker environment you set up in Project
+  1. The Gradescope enviroment is the same as Docker environment.
   
 * Your code must be written using only the C programming language.  Do
   not extend using additional languages.  The exception is for the
-  Makefile for your project, you may write the build system for your
-  code using any available language on Isengard.
+  Makefile for your project, which is already sufficient for this
+  project.
 
 * To compile your code, the grader should be able to ``cd`` into your
   repository and run ``make``. To run your code, the grader should be
@@ -159,8 +158,8 @@ handles pipes properly).
    system call.
 
    Additionally, you are not expected to support more than
-   ``PIPE_BUF`` bytes sent between two processes.  On Isengard, this
-   value is 64 kilobytes.
+   ``PIPE_BUF`` bytes sent between two processes.  On the Docker Image, 
+   this value is 64 kilobytes.
 
 3.3) File Redirection (Deliverable 2)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -370,7 +369,7 @@ You may use them to help understand the behavior of a working project.
 They are included in this template repository and can be run with ``./shell_d1`` or ``./shell_d2``.
 Things to keep in mind about the reference executables:
 
-* They were developed on isengard and are only guaranteed to work on isengard. See the video on Ed for information about setting up isengard with vscode.
+* They were developed on Docker image and are only guaranteed to work there. 
 * They are instructor versions and you may not execute them from within your own code. The autograder checks for this and you will get a zero.
 
 6) Grading
@@ -439,25 +438,8 @@ Please see the syllabus for the full collaboration policy.
 
    **WARNING: Plagarism will be punished harshly!**
 
-9) Access to Isengard
-------------------
 
-Remote access to Isengard is quite similar to ALAMODE, but the
-hostname is ``isengard.mines.edu``. 
-
-For example, to ``ssh`` into the machine with your campus MultiPass
-login, use this command::
-
-  $ ssh username@isengard.mines.edu
-  
-A tutorial has been linked in the discussion board to ``ssh`` via Visual Studio Code.
-
-Note: you need to be on the campus network or VPN for this to work.
-If you are working from home, use either the VPN or hop thru
-``jumpbox.mines.edu`` first.
-
-
-10) Submitting Your Project
+9) Submitting Your Project
 =======================
 
 Submission of your project will be handled via **Gradescope**.
