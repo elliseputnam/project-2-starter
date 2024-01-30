@@ -144,7 +144,7 @@ For an example of a real piped command, try this (which gives the
 number of lines in ``mains/parseview.c`` which contain the word
 ``int``)::
 
-  cat mains/parseview.c | grep int | cat 
+  cat mains/parseview.c | grep int | wc -l 
 
 Or maybe use ``cat`` on a previous command::
 
