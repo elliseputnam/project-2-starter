@@ -125,9 +125,7 @@ any of the ``exec*`` family of library functions (such as
 executing it, if you wish.
 
 [D1] The shell should wait on the external command finishing before
-returning to the prompt.  As an example, you should be able to type
-``gedit``, the editor will open, and you won't get your shell prompt
-again until the editor is closed. See ``man 2 wait`` for info on how
+returning to the prompt. See ``man 2 wait`` for info on how
 to do this.
 
 3.2) Pipes (Deliverable 2)
