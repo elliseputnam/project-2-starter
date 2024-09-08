@@ -358,6 +358,8 @@ somewhere to start, try this:
 
 5.  Start hacking away at ``dispatch_external_command``!
 
+6. If you're using VS Code, open the provided `project-2.code-workspace <project-2.code-workspace>`_ to use VS Code's built-in debugger (Make sure to install the recommended extensions when prompted).
+
 5) Reference Executables
 -----------------------------------
 
