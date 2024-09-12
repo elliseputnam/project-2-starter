@@ -2,10 +2,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
+#include <sys/wait.h>
 
 #include "dispatcher.h"
 #include "shell_builtins.h"
 #include "parser.h"
+
+// FROM RECITATION
+// int program_pipe_1[2];
+
+// program_pipe_1[0];
+// program_pipe_1[1];
+
+// pipe(program_pipe_1);
 
 /**
  * dispatch_external_command() - run a pipeline of commands
@@ -24,6 +34,7 @@
  * Return: The return status of the last command executed in the
  * pipeline.
  */
+// ONLY EDIT THIS FUNCTION FOR DELIVERABLE 1!!!
 static int dispatch_external_command(struct command *pipeline)
 {
 	/*
@@ -50,8 +61,42 @@ static int dispatch_external_command(struct command *pipeline)
 	 *
 	 * Good luck!
 	 */
-	fprintf(stderr, "TODO: handle external commands\n");
-	return -1;
+	//fprintf(stderr, "TODO: handle external commands\n");
+
+	//pipeline->argv[0]; // ex) "echo" 
+
+	// alway guarenteed to be NULL!
+	pipeline->pipe_to = NULL;
+	pipeline->input_filename = NULL;
+	pipeline->output_filename = NULL;
+
+	// fork() creates copy of current program
+	int process = fork();
+
+	int child_status = 0;
+
+	// if current executing process is child process
+	if (process == 0) {
+        // printf("I AM THE CHILD PROCESS.");
+        // we forked outselves so we could start this...
+
+        if (execvp(pipeline->argv[0], pipeline->argv) == -1) {
+            // execvp fails, print an error message
+            perror("Error executing command");
+            exit(EXIT_FAILURE);
+        }
+    } else if (process > 0) {
+        // printf("I AM THE MAIN PROCESS.");
+        
+        wait(&child_status);
+
+    } else {
+        // if fork fails, handle the error
+        perror("Error forking process");
+        return -1;
+    }
+
+    return child_status;
 }
 
 /**
