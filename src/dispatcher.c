@@ -4,6 +4,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <sys/wait.h>
+#include <fcntl.h>
 
 #include "dispatcher.h"
 #include "shell_builtins.h"
@@ -65,38 +66,149 @@ static int dispatch_external_command(struct command *pipeline)
 
 	//pipeline->argv[0]; // ex) "echo" 
 
-	// alway guarenteed to be NULL!
-	pipeline->pipe_to = NULL;
-	pipeline->input_filename = NULL;
-	pipeline->output_filename = NULL;
+// DELIVERABLE 1 CODE !!!
+// comment out
+	// // alway guarenteed to be NULL!
+	// pipeline->pipe_to = NULL;
+	// pipeline->input_filename = NULL;
+	// pipeline->output_filename = NULL;
 
-	// fork() creates copy of current program
-	int process = fork();
+	// // fork() creates copy of current program
+	// int process = fork();
 
-	int child_status = 0;
+	// int child_status = 0;
 
-	// if current executing process is child process
-	if (process == 0) {
-        // printf("I AM THE CHILD PROCESS.");
-        // we forked outselves so we could start this...
+	// // if current executing process is child process
+	// if (process == 0) {
+    //     // printf("I AM THE CHILD PROCESS.");
+    //     // we forked outselves so we could start this...
 
-        if (execvp(pipeline->argv[0], pipeline->argv) == -1) {
-            // execvp fails, print an error message
-            perror("Error executing command");
-            exit(EXIT_FAILURE);
-        }
-    } else if (process > 0) {
-        // printf("I AM THE MAIN PROCESS.");
+    //     if (execvp(pipeline->argv[0], pipeline->argv) == -1) {
+    //         // execvp fails, print an error message
+    //         perror("Error executing command");
+    //         exit(EXIT_FAILURE);
+    //     }
+    // } else if (process > 0) {
+    //     // printf("I AM THE MAIN PROCESS.");
         
-        wait(&child_status);
+    //     wait(&child_status);
 
-    } else {
-        // if fork fails, handle the error
-        perror("Error forking process");
-        return -1;
-    }
+    // } else {
+    //     // if fork fails, handle the error
+    //     perror("Error forking process");
+    //     return -1;
+    // }
 
-    return child_status;
+    // return child_status;
+
+// DELIVERABLE 2 CODE !!!
+
+	// 2 pipes needed, each with 2 places, read/write end
+	// one for current process
+	int currentPipe[2];
+	// one for previous process
+	int prevPipe[2];
+
+	bool firstArg = true;
+	int childStatus = 0;
+
+	// loop to parse pipeline, enter loop if pipe to next command
+	while(true) {
+		// file descriptors
+		// for piping in, STDIN
+		int fd_in = STDIN_FILENO; 
+		// for piping out, STDOUT
+        int fd_out = STDOUT_FILENO; 
+
+		// check previous command output to see if we need to pipe into next command
+		if (!firstArg) {
+			// read output from previous pipe
+			fd_in = prevPipe[0];
+		}
+
+		// check if input file
+		if (firstArg && pipeline->input_filename != NULL) {
+			fd_in = open(pipeline->input_filename, O_RDONLY);
+
+			if (fd_in < 0) {
+				perror("Error opening input file");
+				return -1;
+			}
+		}
+
+		// output handling, writing to file or STDOUT
+		if(pipeline->output_type == COMMAND_OUTPUT_PIPE) {
+			// create a new pipe
+			pipe(currentPipe);
+			// write end of pipe?
+			fd_out = currentPipe[1];
+		}
+
+		else if (pipeline->output_type == COMMAND_OUTPUT_FILE_TRUNCATE) {
+			fd_out = open(pipeline->output_filename, O_WRONLY | O_CREAT | O_TRUNC, 0666);
+		}
+
+		else if (pipeline->output_type == COMMAND_OUTPUT_FILE_APPEND) {
+            fd_out = open(pipeline->output_filename, O_WRONLY | O_CREAT | O_APPEND, 0666);
+        }
+
+		// now we fork() !
+		int process = fork();
+
+		if (process < 0) {
+			perror("fork() failed");
+			return -1;
+		}
+		// child process
+		else if (process == 0) {
+			// STDIN
+			if (fd_in != STDIN_FILENO) {
+				dup2(fd_in, STDIN_FILENO);
+				close(fd_in);
+			}
+			// STDOUT
+			if (fd_out != STDOUT_FILENO) {
+				dup2(fd_out, STDOUT_FILENO);
+				close(fd_out);
+			}
+
+			if (execvp(pipeline->argv[0], pipeline->argv) == -1) {
+				perror("execvp() failed");
+				exit(EXIT_FAILURE);
+			}
+		}
+		// parent process
+		else {
+			if (fd_in != STDIN_FILENO) {
+				close(fd_in);
+			}
+			if (fd_out != STDOUT_FILENO) {
+				close(fd_out);
+			}
+
+			// wait for teh child process to finish
+			wait(&childStatus);
+
+			// update our pipes for the next command
+			prevPipe[0] = currentPipe[0];
+			prevPipe[1] = currentPipe[1];
+
+			// prep next command
+			firstArg = false;
+
+			// check if another command in pipeline
+			if (pipeline->output_type == COMMAND_OUTPUT_PIPE) {
+				// continue to next command
+				pipeline = pipeline->pipe_to;
+			}
+			else {
+				// no more commands
+				break;
+			}
+		}
+	}
+	// returning status of the last executed command
+	return childStatus;
 }
 
 /**
